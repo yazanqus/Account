@@ -97,10 +97,64 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                
-                
-                
-                
+                <?php if(\Auth::user()->type=='super admin'): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage user')): ?>
+                        <li class="nav-item">
+                            <a href="<?php echo e(route('users.index')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'users.index' || Request::route()->getName() == 'users.create' || Request::route()->getName() == 'users.edit') ? ' active' : ''); ?>">
+                                <i class="fas fa-columns"></i><?php echo e(__('User')); ?>
+
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <?php if( Gate::check('manage user') || Gate::check('manage role')): ?>
+                        <li class="nav-item">
+                            <a class="nav-link <?php echo e((Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions' )?' active':'collapsed'); ?>" href="#navbar-staff" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions' )?'true':'false'); ?>" aria-controls="navbar-staff">
+                                <i class="fas fa-users"></i><?php echo e(__('Staff')); ?>
+
+                                <i class="fas fa-sort-up"></i>
+                            </a>
+                            <div class="collapse <?php echo e((Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions')?'show':''); ?>" id="navbar-staff">
+                                <ul class="nav flex-column submenu-ul">
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage user')): ?>
+                                        <li class="nav-item <?php echo e((Request::route()->getName() == 'users.index' || Request::route()->getName() == 'users.create' || Request::route()->getName() == 'users.edit') ? ' active' : ''); ?>">
+                                            <a href="<?php echo e(route('users.index')); ?>" class="nav-link"><?php echo e(__('User')); ?></a>
+                                        </li>
+                                    <?php endif; ?>
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage role')): ?>
+                                        <li class="nav-item <?php echo e((Request::route()->getName() == 'roles.index' || Request::route()->getName() == 'roles.create' || Request::route()->getName() == 'roles.edit') ? ' active' : ''); ?>">
+                                            <a href="<?php echo e(route('roles.index')); ?>" class="nav-link"><?php echo e(__('Role')); ?></a>
+                                        </li>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if(Gate::check('manage product & service')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('productservice.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'productservice')?'active':''); ?>">
+                            <i class="fas fa-shopping-cart"></i><?php echo e(__('Product & Service')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if(Gate::check('manage customer')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('customer.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'customer')?'active':''); ?>">
+                            <i class="fas fa-user-ninja"></i><?php echo e(__('Customer')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?> 
+                 <?php if(Gate::check('manage vender')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('vender.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'vender')?'active':''); ?>">
+                            <i class="fas fa-sticky-note"></i><?php echo e(__('Vendor')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php if(Gate::check('manage proposal')): ?>
                     <li class="nav-item">
                         <a href="<?php echo e(route('proposal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'proposal')?'active':''); ?>">
@@ -109,16 +163,39 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                
+                <?php if( Gate::check('manage bank account') ||  Gate::check('manage transfer')): ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo e((Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?' active':'collapsed'); ?>" href="#navbar-banking" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?'true':'false'); ?>" aria-controls="navbar-banking">
+                            <i class="fas fa-university"></i><?php echo e(__('Banking')); ?>
+
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse <?php echo e((Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?'show':''); ?>" id="navbar-banking">
+                            <ul class="nav flex-column submenu-ul">
                                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage bank account')): ?>
                                     <li class="nav-item <?php echo e((Request::route()->getName() == 'bank-account.index' || Request::route()->getName() == 'bank-account.create' || Request::route()->getName() == 'bank-account.edit') ? ' active' : ''); ?>">
                                         <a href="<?php echo e(route('bank-account.index')); ?>" class="nav-link"><?php echo e(__('Account')); ?></a>
                                     </li>
                                 <?php endif; ?>
-                                
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage transfer')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'transfer.index' || Request::route()->getName() == 'transfer.create' || Request::route()->getName() == 'transfer.edit') ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('transfer.index')); ?>" class="nav-link"><?php echo e(__('Transfer')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </li>
+                <?php endif; ?>
 
                 <?php if( Gate::check('manage invoice') ||  Gate::check('manage revenue') ||  Gate::check('manage credit note')): ?>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo e((Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?' active':'collapsed'); ?>" href="#navbar-income" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?'true':'false'); ?>" aria-controls="navbar-income">
+                            <i class="fas fa-money-bill-alt"></i><?php echo e(__('Income')); ?>
+
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse <?php echo e((Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?'show':''); ?>" id="navbar-income">
+                            <ul class="nav flex-column submenu-ul">
                                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage invoice')): ?>
                                     <li class="nav-item <?php echo e((Request::route()->getName() == 'invoice.index' || Request::route()->getName() == 'invoice.create' || Request::route()->getName() == 'invoice.edit' || Request::route()->getName() == 'invoice.show') ? ' active' : ''); ?>">
                                         <a href="<?php echo e(route('invoice.index')); ?>" class="nav-link"><?php echo e(__('Invoice')); ?></a>
@@ -127,7 +204,19 @@
                                     <li class="nav-item <?php echo e((Request::route()->getName() == 'invoice.index' || Request::route()->getName() == 'invoice.create' || Request::route()->getName() == 'invoice.edit' || Request::route()->getName() == 'invoice.show') ? ' active' : ''); ?>">
                                         <a href="<?php echo e(route('invoice.index')); ?>" class="nav-link"><?php echo e(__('Contract')); ?></a>
                                     </li>
-                                
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage revenue')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'revenue.index' || Request::route()->getName() == 'revenue.create' || Request::route()->getName() == 'revenue.edit') ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('revenue.index')); ?>" class="nav-link"><?php echo e(__('Revenue')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage credit note')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'credit.note' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('credit.note')); ?>" class="nav-link"><?php echo e(__('Credit Note')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </li>
                 <?php endif; ?>
 
                 <?php if( Gate::check('manage bill')  ||  Gate::check('manage payment') ||  Gate::check('manage debit note')): ?>
@@ -159,18 +248,206 @@
                     </li>
                 <?php endif; ?>
 
-                
+                <?php if( Gate::check('manage chart of account') ||  Gate::check('manage journal entry') ||   Gate::check('balance sheet report') ||  Gate::check('ledger report') ||  Gate::check('trial balance report')): ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo e((Request::segment(1) == 'chart-of-account' || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?' active':'collapsed'); ?>" href="#navbar-double-entry" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'bill' )?'true':'false'); ?>" aria-controls="navbar-double-entry">
+                            <i class="fas fa-balance-scale"></i><?php echo e(__('Double Entry')); ?>
 
-                
-                
-                
-                
-                
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse <?php echo e((Request::segment(1) == 'chart-of-account'  || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?'show':''); ?>" id="navbar-double-entry">
+                            <ul class="nav flex-column submenu-ul">
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage chart of account')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'chart-of-account.index') ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('chart-of-account.index')); ?>" class="nav-link"><?php echo e(__('Chart of Accounts')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage journal entry')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'journal-entry.index' || Request::route()->getName() == 'journal-entry.show') ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('journal-entry.index')); ?>" class="nav-link"><?php echo e(__('Journal Account')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('ledger report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.ledger' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.ledger')); ?>" class="nav-link"><?php echo e(__('Ledger Summary')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('balance sheet report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.balance.sheet' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.balance.sheet')); ?>" class="nav-link"><?php echo e(__('Balance Sheet')); ?></a>
+                                    </li>
+                                <?php endif; ?>
 
-                
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('trial balance report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'trial.balance' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('trial.balance')); ?>" class="nav-link"><?php echo e(__('Trial Balance')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </li>
+                <?php endif; ?>
 
-                
-                
+                <?php if(Gate::check('manage goal')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('goal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'goal')?'active':''); ?>">
+                            <i class="fas fa-bullseye"></i><?php echo e(__('Goal')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?> --}}
+                <?php if(Gate::check('manage assets')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('account-assets.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'account-assets')?'active':''); ?>">
+                            <i class="fas fa-calculator"></i><?php echo e(__('Assets')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if(Gate::check('manage plan')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('plans.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'plans')?'active':''); ?>">
+                            <i class="fas fa-trophy"></i><?php echo e(__('Plan')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if(Gate::check('manage coupon')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('coupons.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'coupons')?'active':''); ?>">
+                            <i class="fas fa-gift"></i><?php echo e(__('Coupon')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if(Gate::check('manage order')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('order.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'orders')?'active':''); ?>">
+                            <i class="fas fa-cart-plus"></i><?php echo e(__('Order')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                 <?php if( Gate::check('income report') || Gate::check('expense report') || Gate::check('income vs expense report') || Gate::check('tax report')  || Gate::check('loss & profit report') || Gate::check('invoice report') || Gate::check('bill report') || Gate::check('invoice report') ||  Gate::check('manage transaction') ||  Gate::check('statement report') ): ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo e(((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?' active':'collapsed'); ?>" href="#navbar-reports" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'report' || Request::segment(1) == 'transaction')?'true':'false'); ?>" aria-controls="navbar-reports">
+                            <i class="fas fa-chart-area"></i><?php echo e(__('Report')); ?>
+
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse <?php echo e(((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?'show':''); ?>" id="navbar-reports">
+                            <ul class="nav flex-column submenu-ul">
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage transaction')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'transaction.index' || Request::route()->getName() == 'transfer.create' || Request::route()->getName() == 'transaction.edit') ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('transaction.index')); ?>" class="nav-link"><?php echo e(__('Transaction')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('statement report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.account.statement') ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.account.statement')); ?>" class="nav-link"><?php echo e(__('Account Statement')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('income report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.income.summary' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.income.summary')); ?>" class="nav-link"><?php echo e(__('Income Summary')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('expense report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.expense.summary' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.expense.summary')); ?>" class="nav-link"><?php echo e(__('Expense Summary')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('income vs expense report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.income.vs.expense.summary' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.income.vs.expense.summary')); ?>" class="nav-link"><?php echo e(__('Income VS Expense')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('tax report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.tax.summary' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.tax.summary')); ?>" class="nav-link"><?php echo e(__('Tax Summary')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('loss & profit report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.profit.loss.summary' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.profit.loss.summary')); ?>" class="nav-link"><?php echo e(__('Profit & Loss')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('invoice report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.invoice.summary' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.invoice.summary')); ?>" class="nav-link"><?php echo e(__('Invoice Summary')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('bill report')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'report.bill.summary' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('report.bill.summary')); ?>" class="nav-link"><?php echo e(__('Bill Summary')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+
+                            </ul>
+                        </div>
+                    </li>
+                <?php endif; ?>
+
+                <?php if(Gate::check('manage constant tax') || Gate::check('manage constant category') ||Gate::check('manage constant unit') ||Gate::check('manage constant payment method') ||Gate::check('manage constant custom field') || Gate::check('manage constant chart of account')): ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo e((Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) == 'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?' active':'collapsed'); ?>" href="#navbar-constant" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) ==
+                        'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?'true':'false'); ?>" aria-controls="navbar-constant">
+                            <i class="fas fa-cog"></i><?php echo e(__('Constant')); ?>
+
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse <?php echo e((Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) == 'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?'show':''); ?>" id="navbar-constant">
+                            <ul class="nav flex-column submenu-ul">
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant tax')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'taxes.index' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('taxes.index')); ?>" class="nav-link"><?php echo e(__('Taxes')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant category')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'product-category.index' ) ? 'active' : ''); ?>">
+                                        <a href="<?php echo e(route('product-category.index')); ?>" class="nav-link"><?php echo e(__('Category')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant unit')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'product-unit.index' ) ? ' active' : ''); ?>">
+                                        <a href="<?php echo e(route('product-unit.index')); ?>" class="nav-link"><?php echo e(__('Unit')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant custom field')): ?>
+                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'custom-field.index' ) ? 'active' : ''); ?>">
+                                        <a href="<?php echo e(route('custom-field.index')); ?>" class="nav-link"><?php echo e(__('Custom Field')); ?></a>
+                                    </li>
+                                <?php endif; ?>
+
+                            </ul>
+                        </div>
+                    </li>
+                <?php endif; ?>
+                <?php if(Auth::user()->type == 'super admin'): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('custom_landing_page.index')); ?>" class="nav-link">
+                            <i class="fas fa-clipboard"></i><?php echo e(__('Landing page')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if(Gate::check('manage system settings')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('systems.index')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'systems.index') ? ' active' : ''); ?>">
+                            <i class="fas fa-sliders-h"></i><?php echo e(__('System Setting')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if(Gate::check('manage company settings')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('company.setting')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'systems.index') ? ' active' : ''); ?>">
+                            <i class="fas fa-sliders-h"></i><?php echo e(__('Company Setting')); ?>
+
+                        </a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

@@ -24,12 +24,16 @@ $company_favicon = Utility::getValByName('company_favicon');
     <link rel="stylesheet" href="<?php echo e(asset('assets/libs/bootstrap-daterangepicker/daterangepicker.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/libs/select2/dist/css/select2.min.css')); ?>">
 
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <?php echo $__env->yieldPushContent('css-page'); ?>
 
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/site.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/ac.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/datatables.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/stylesheet.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/stylesheet.css')); ?>"> 
+     
 
     <?php if(env('SITE_RTL') == 'on'): ?>
         <link rel="stylesheet" href="<?php echo e(asset('css/bootstrap-rtl.css')); ?>">
@@ -88,6 +92,7 @@ $company_favicon = Utility::getValByName('company_favicon');
     <script src="<?php echo e(asset('assets/libs/nicescroll/jquery.nicescroll.min.js')); ?> "></script>
     <script src="<?php echo e(asset('assets/libs/apexcharts/dist/apexcharts.min.js')); ?>"></script>
     <script src="<?php echo e(asset('js/jquery.form.js')); ?>"></script>
+    
     <script>
         moment.locale('en');
     </script>
@@ -162,6 +167,7 @@ $company_favicon = Utility::getValByName('company_favicon');
         </script>
     <?php endif; ?>
     <?php echo $__env->yieldPushContent('script-page'); ?>
+
 </body>
 
 </html>

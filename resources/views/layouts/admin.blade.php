@@ -23,12 +23,16 @@ $company_favicon = Utility::getValByName('company_favicon');
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/select2/dist/css/select2.min.css') }}">
 
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     @stack('css-page')
 
     <link rel="stylesheet" href="{{ asset('assets/css/site.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/ac.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}"> 
+     
 
     @if (env('SITE_RTL') == 'on')
         <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.css') }}">
@@ -87,6 +91,7 @@ $company_favicon = Utility::getValByName('company_favicon');
     <script src="{{ asset('assets/libs/nicescroll/jquery.nicescroll.min.js') }} "></script>
     <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('js/jquery.form.js') }}"></script>
+    
     <script>
         moment.locale('en');
     </script>
@@ -161,6 +166,7 @@ $company_favicon = Utility::getValByName('company_favicon');
         </script>
     @endif
     @stack('script-page')
+
 </body>
 
 </html>

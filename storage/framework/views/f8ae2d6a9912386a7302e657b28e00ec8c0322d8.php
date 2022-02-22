@@ -24,9 +24,6 @@ $company_favicon = Utility::getValByName('company_favicon');
     <link rel="stylesheet" href="<?php echo e(asset('assets/libs/bootstrap-daterangepicker/daterangepicker.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/libs/select2/dist/css/select2.min.css')); ?>">
 
-
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <?php echo $__env->yieldPushContent('css-page'); ?>
 
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/site.css')); ?>">

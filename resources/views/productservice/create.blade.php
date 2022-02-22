@@ -48,7 +48,7 @@
         </div>
         <div class="form-group col-md-6">
             {{ Form::label('category_id', __('Category'),['class'=>'form-control-label']) }}
-            {{ Form::select('category_id', $category,null, array('class' => 'form-control select2','required'=>'required')) }}
+            {{ Form::select('category_id', $category,null, array('class' => 'form-control select2')) }}
         </div>
         <div class="form-group col-md-6">
             {{ Form::label('unit_id', __('Unit'),['class'=>'form-control-label']) }}

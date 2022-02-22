@@ -884,8 +884,17 @@ Route::post('/plan-pay-with-coingate',['as' => 'plan.pay.with.coingate','uses' =
 Route::get('/plan/coingate/{plan}', ['as' => 'plan.coingate','uses' => 'CoingatePaymentController@getPaymentStatus']);
 
 ####################################Start of the Contract Routes #############################################
-Route::resource('/contract','ContractController' );
-
+Route::group(
+    [
+        'middleware' => [
+            'auth',
+            'XSS','revalidate',
+        ],
+    ],function(){
+    Route::resource('/contract','ContractController' );
+    Route::get('contract/create/{cid}', 'ContractController@create')->name('contract.create');
+    }
+);
 Route::group(
     [
         'middleware' => [

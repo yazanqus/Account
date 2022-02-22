@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contract;
+use App\Customer;
 use Illuminate\Http\Request;
 
 class ContractController extends Controller
@@ -14,7 +15,11 @@ class ContractController extends Controller
      */
     public function index()
     {
-        return view ('contract.index');
+        $contracts = Contract::all();
+        $customer = Customer::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+        $customer->prepend('All', '');
+        return view ('contract.index' , compact('customer'));
+        
     }
 
     /**
@@ -22,10 +27,18 @@ class ContractController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    // public function create()
+    // {
+    //     $customers = Customer::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+    //     $customers->prepend('Select Customer', '');
+    //     return view ('contract.create' , compact('customers'));
+    // }
+    public function create($customerId)
     {
-        return view ('contract.create');
-    }
+        $customers = Customer::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+        $customers->prepend('Select Customer', '');
+        return view('contract.create', compact('customers','customerId'));
+        }
 
     /**
      * Store a newly created resource in storage.

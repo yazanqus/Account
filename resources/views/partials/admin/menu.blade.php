@@ -132,7 +132,7 @@
                             <i class="fas fa-user-ninja"></i>{{__('Customer')}}
                         </a>
                     </li>
-                @endif 
+                @endif
                  @if(Gate::check('manage vender'))
                     <li class="nav-item">
                         <a href="{{ route('vender.index') }}" class="nav-link {{ (Request::segment(1) == 'vender')?'active':''}}">

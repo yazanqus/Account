@@ -15,7 +15,7 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->foreignkey('customer_id');
+            $table->unsignedBigInteger('customer_id');
             $table->string('type');
             $table->string('subject');
             $table->string('status');

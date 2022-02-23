@@ -59,12 +59,7 @@
             <?php echo e(Form::select('tax_id[]', $tax,null, array('class' => 'form-control select2','multiple'))); ?>
 
         </div>
-        <div class="form-group col-md-6">
-            <?php echo e(Form::label('category_id', __('Category'),['class'=>'form-control-label'])); ?>
-
-            <?php echo e(Form::select('category_id', $category,null, array('class' => 'form-control select2'))); ?>
-
-        </div>
+        
         <div class="form-group col-md-6">
             <?php echo e(Form::label('unit_id', __('Unit'),['class'=>'form-control-label'])); ?>
 

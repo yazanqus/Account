@@ -25,25 +25,8 @@
                     <?php echo e(Form::open(array('route' => array('productservice.index'),'method' => 'GET','id'=>'product_service'))); ?>
 
                     <div class="row d-flex justify-content-end mt-2">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                            <div class="all-select-box">
-                                <div class="btn-box">
-                                    <?php echo e(Form::label('category', __('Category'),['class'=>'text-type'])); ?>
-
-                                    <?php echo e(Form::select('category', $category,null, array('class' => 'form-control select2','required'=>'required'))); ?>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto my-auto">
-                            <a href="#" class="apply-btn" onclick="document.getElementById('product_service').submit(); return false;" data-toggle="tooltip" data-original-title="<?php echo e(__('apply')); ?>">
-                                <span class="btn-inner--icon"><i class="fas fa-search"></i></span>
-                            </a>
-                            <a href="<?php echo e(route('productservice.index')); ?>" class="reset-btn" data-toggle="tooltip" data-original-title="<?php echo e(__('Reset')); ?>">
-                                <span class="btn-inner--icon"><i class="fas fa-trash-restore-alt"></i></span>
-                            </a>
-
-                        </div>
+                        
+                        
                     </div>
                     <?php echo e(Form::close()); ?>
 
@@ -56,7 +39,7 @@
                                 <th><?php echo e(__('Sale Price')); ?></th>
                                 <th><?php echo e(__('Purchase Price')); ?></th>
                                 <th><?php echo e(__('Tax')); ?></th>
-                                <th><?php echo e(__('Category')); ?></th>
+                                
                                 <th><?php echo e(__('Unit')); ?></th>
                                 <th><?php echo e(__('Type')); ?></th>
                                 <th><?php echo e(__('Description')); ?></th>
@@ -85,7 +68,7 @@
                                             -
                                         <?php endif; ?>
                                     </td>
-                                    <td><?php echo e(!empty($productService->category)?$productService->category->name:''); ?></td>
+                                    
                                     <td><?php echo e(!empty($productService->unit())?$productService->unit()->name:''); ?></td>
                                     <td><?php echo e($productService->type); ?></td>
                                     <td><?php echo e($productService->description); ?></td>

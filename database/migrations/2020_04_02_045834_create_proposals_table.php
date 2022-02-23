@@ -20,7 +20,7 @@ class CreateProposalsTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->date('issue_date');
             $table->date('send_date')->nullable();
-            $table->integer('category_id');
+            // $table->integer('category_id');
             $table->integer('status')->default('0');
             $table->integer('discount_apply')->default('0');
             $table->integer('created_by')->default('0');

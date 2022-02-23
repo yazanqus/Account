@@ -324,14 +324,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="input-group">
-                                        <?php echo e(Form::label('category_id', __('Category'),['class'=>'form-control-label'])); ?>
-
-                                        <?php echo e(Form::select('category_id', $category,null, array('class' => 'form-control select2','required'=>'required'))); ?>
-
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <?php echo e(Form::label('proposal_number', __('Proposal Number'),['class'=>'form-control-label'])); ?>

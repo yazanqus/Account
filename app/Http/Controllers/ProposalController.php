@@ -74,12 +74,12 @@ class ProposalController extends Controller
             $proposal_number = \Auth::user()->proposalNumberFormat($this->proposalNumber());
             $customers       = Customer::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $customers->prepend('Select Customer', '');
-            $category = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 1)->get()->pluck('name', 'id');
-            $category->prepend('Select Category', '');
+            // $category = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 1)->get()->pluck('name', 'id');
+            // $category->prepend('Select Category', '');
             $product_services = ProductService::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $product_services->prepend('--', '');
 
-            return view('proposal.create', compact('customers', 'proposal_number', 'product_services', 'category', 'customFields', 'customerId'));
+            return view('proposal.create', compact('customers', 'proposal_number', 'product_services', 'customFields', 'customerId'));
         }
         else
         {
@@ -121,7 +121,7 @@ class ProposalController extends Controller
                 $request->all(), [
                                    'customer_id' => 'required',
                                    'issue_date' => 'required',
-                                   'category_id' => 'required',
+                                //    'category_id' => 'required',
                                    'items' => 'required',
                                ]
             );
@@ -138,7 +138,7 @@ class ProposalController extends Controller
             $proposal->customer_id    = $request->customer_id;
             $proposal->status         = 0;
             $proposal->issue_date     = $request->issue_date;
-            $proposal->category_id    = $request->category_id;
+            // $proposal->category_id    = $request->category_id;
             $proposal->discount_apply = isset($request->discount_apply) ? 1 : 0;
             $proposal->created_by     = \Auth::user()->creatorId();
             $proposal->save();
@@ -174,8 +174,8 @@ class ProposalController extends Controller
             $proposal        = Proposal::find($id);
             $proposal_number = \Auth::user()->proposalNumberFormat($proposal->proposal_id);
             $customers       = Customer::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
-            $category        = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 1)->get()->pluck('name', 'id');
-            $category->prepend('Select Category', '');
+            // $category        = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 1)->get()->pluck('name', 'id');
+            // $category->prepend('Select Category', '');
             $product_services = ProductService::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             //            dd($product_services);
             $proposal->customField = CustomField::getData($proposal, 'proposal');
@@ -208,7 +208,7 @@ class ProposalController extends Controller
                     $request->all(), [
                                        'customer_id' => 'required',
                                        'issue_date' => 'required',
-                                       'category_id' => 'required',
+                                    //    'category_id' => 'required',
                                        'items' => 'required',
                                    ]
                 );
@@ -220,7 +220,7 @@ class ProposalController extends Controller
                 }
                 $proposal->customer_id    = $request->customer_id;
                 $proposal->issue_date     = $request->issue_date;
-                $proposal->category_id    = $request->category_id;
+                // $proposal->category_id    = $request->category_id;
                 $proposal->discount_apply = isset($request->discount_apply) ? 1 : 0;
                 $proposal->save();
                 CustomField::saveData($proposal, $request->customField);
@@ -483,7 +483,7 @@ class ProposalController extends Controller
             $duplicateProposal->customer_id = $proposal['customer_id'];
             $duplicateProposal->issue_date  = date('Y-m-d');
             $duplicateProposal->send_date   = null;
-            $duplicateProposal->category_id = $proposal['category_id'];
+            // $duplicateProposal->category_id = $proposal['category_id'];
             $duplicateProposal->status      = 0;
             $duplicateProposal->created_by  = $proposal['created_by'];
             $duplicateProposal->save();
@@ -526,7 +526,7 @@ class ProposalController extends Controller
             $convertInvoice->issue_date  = date('Y-m-d');
             $convertInvoice->due_date    = date('Y-m-d');
             $convertInvoice->send_date   = null;
-            $convertInvoice->category_id = $proposal['category_id'];
+            // $convertInvoice->category_id = $proposal['category_id'];
             $convertInvoice->status      = 0;
             $convertInvoice->created_by  = $proposal['created_by'];
             $convertInvoice->save();

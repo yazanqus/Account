@@ -76,7 +76,7 @@
                                 @if(!\Auth::guard('customer')->check())
                                     <th> {{__('Customer')}}</th>
                                 @endif
-                                <th> {{__('Category')}}</th>
+                                {{-- <th> {{__('Category')}}</th> --}}
                                 <th> {{__('Issue Date')}}</th>
                                 <th> {{__('Status')}}</th>
                                 @if(Gate::check('edit proposal') || Gate::check('delete proposal') || Gate::check('show proposal'))
@@ -100,7 +100,7 @@
                                     @if(!\Auth::guard('customer')->check())
                                         <td> {{!empty($proposal->customer)? $proposal->customer->name:'' }} </td>
                                     @endif
-                                    <td>{{ !empty($proposal->category)?$proposal->category->name:''}}</td>
+                                    {{-- <td>{{ !empty($proposal->category)?$proposal->category->name:''}}</td> --}}
                                     <td>{{ Auth::user()->dateFormat($proposal->issue_date) }}</td>
                                     <td>
                                         @if($proposal->status == 0)

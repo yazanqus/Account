@@ -46,10 +46,10 @@
             {{ Form::label('tax_id', __('Tax'),['class'=>'form-control-label']) }}
             {{ Form::select('tax_id[]', $tax,null, array('class' => 'form-control select2','multiple')) }}
         </div>
-        <div class="form-group col-md-6">
+        {{-- <div class="form-group col-md-6">
             {{ Form::label('category_id', __('Category'),['class'=>'form-control-label']) }}
             {{ Form::select('category_id', $category,null, array('class' => 'form-control select2')) }}
-        </div>
+        </div> --}}
         <div class="form-group col-md-6">
             {{ Form::label('unit_id', __('Unit'),['class'=>'form-control-label']) }}
             {{ Form::select('unit_id', $unit,null, array('class' => 'form-control select2','required'=>'required')) }}

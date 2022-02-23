@@ -65,7 +65,7 @@ class ProductServiceController extends Controller
                 'sku' => 'required',
                 'sale_price' => 'required|numeric',
                 'purchase_price' => 'required|numeric',
-                'category_id' => 'required',
+                // 'category_id' => 'required',
                 'unit_id' => 'required',
                 'type' => 'required',
             ];
@@ -88,7 +88,7 @@ class ProductServiceController extends Controller
             $productService->tax_id         = !empty($request->tax_id) ? implode(',', $request->tax_id) : '';
             $productService->unit_id        = $request->unit_id;
             $productService->type           = $request->type;
-            $productService->category_id    = $request->category_id;
+            // $productService->category_id    = $request->category_id;
             $productService->created_by     = \Auth::user()->creatorId();
             $productService->save();
             CustomField::saveData($productService, $request->customField);
@@ -147,7 +147,7 @@ class ProductServiceController extends Controller
                     'sale_price' => 'required|numeric',
                     'purchase_price' => 'required|numeric',
                     'tax_id' => 'required',
-                    'category_id' => 'required',
+                    // 'category_id' => 'required',
                     'unit_id' => 'required',
                     'type' => 'required',
                 ];
@@ -169,7 +169,7 @@ class ProductServiceController extends Controller
                 $productService->tax_id         = !empty($request->tax_id) ? implode(',', $request->tax_id) : '';
                 $productService->unit_id        = $request->unit_id;
                 $productService->type           = $request->type;
-                $productService->category_id    = $request->category_id;
+                // $productService->category_id    = $request->category_id;
                 $productService->created_by     = \Auth::user()->creatorId();
                 $productService->save();
                 CustomField::saveData($productService, $request->customField);

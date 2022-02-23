@@ -319,12 +319,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="input-group">
                                         {{ Form::label('category_id', __('Category'),['class'=>'form-control-label']) }}
                                         {{ Form::select('category_id', $category,null, array('class' => 'form-control select2','required'=>'required')) }}
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         {{ Form::label('proposal_number', __('Proposal Number'),['class'=>'form-control-label']) }}

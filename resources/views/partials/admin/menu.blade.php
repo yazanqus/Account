@@ -377,11 +377,11 @@
                                         <a href="{{ route('taxes.index') }}" class="nav-link">{{ __('Taxes') }}</a>
                                     </li>
                                 @endcan
-                                @can('manage constant category')
+                                {{-- @can('manage constant category')
                                     <li class="nav-item {{ (Request::route()->getName() == 'product-category.index' ) ? 'active' : '' }}">
                                         <a href="{{route('product-category.index')}}" class="nav-link">{{ __('Category') }}</a>
                                     </li>
-                                @endcan
+                                @endcan --}}
                                 @can('manage constant unit')
                                     <li class="nav-item {{ (Request::route()->getName() == 'product-unit.index' ) ? ' active' : '' }}">
                                         <a href="{{route('product-unit.index')}}" class="nav-link">{{ __('Unit') }}</a>

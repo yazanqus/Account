@@ -21,7 +21,7 @@ class CreateProductServicesTable extends Migration
             $table->float('purchase_price',20)->default('0.0');
             $table->integer('quantity')->default('0');
             $table->integer('tax_id')->default('0');
-            $table->integer('category_id')->default('0');
+            // $table->integer('category_id')->nullable();
             $table->integer('unit_id')->default('0');
             $table->string('type');
             $table->text('description')->nullable();

@@ -23,15 +23,15 @@
                 <div class="card-body py-0">
                     {{ Form::open(array('route' => array('productservice.index'),'method' => 'GET','id'=>'product_service')) }}
                     <div class="row d-flex justify-content-end mt-2">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        {{-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                             <div class="all-select-box">
                                 <div class="btn-box">
                                     {{ Form::label('category', __('Category'),['class'=>'text-type']) }}
                                     {{ Form::select('category', $category,null, array('class' => 'form-control select2','required'=>'required')) }}
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-auto my-auto">
+                        </div> --}}
+                        {{-- <div class="col-auto my-auto">
                             <a href="#" class="apply-btn" onclick="document.getElementById('product_service').submit(); return false;" data-toggle="tooltip" data-original-title="{{__('apply')}}">
                                 <span class="btn-inner--icon"><i class="fas fa-search"></i></span>
                             </a>
@@ -39,7 +39,7 @@
                                 <span class="btn-inner--icon"><i class="fas fa-trash-restore-alt"></i></span>
                             </a>
 
-                        </div>
+                        </div> --}}
                     </div>
                     {{ Form::close() }}
                     <div class="table-responsive">
@@ -51,7 +51,7 @@
                                 <th>{{__('Sale Price')}}</th>
                                 <th>{{__('Purchase Price')}}</th>
                                 <th>{{__('Tax')}}</th>
-                                <th>{{__('Category')}}</th>
+                                {{-- <th>{{__('Category')}}</th> --}}
                                 <th>{{__('Unit')}}</th>
                                 <th>{{__('Type')}}</th>
                                 <th>{{__('Description')}}</th>
@@ -80,7 +80,7 @@
                                             -
                                         @endif
                                     </td>
-                                    <td>{{ !empty($productService->category)?$productService->category->name:'' }}</td>
+                                    {{-- <td>{{ !empty($productService->category)?$productService->category->name:'' }}</td> --}}
                                     <td>{{ !empty($productService->unit())?$productService->unit()->name:'' }}</td>
                                     <td>{{ $productService->type }}</td>
                                     <td>{{ $productService->description }}</td>

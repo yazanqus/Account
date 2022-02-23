@@ -86,7 +86,7 @@
                                 <?php if(!\Auth::guard('customer')->check()): ?>
                                     <th> <?php echo e(__('Customer')); ?></th>
                                 <?php endif; ?>
-                                <th> <?php echo e(__('Category')); ?></th>
+                                
                                 <th> <?php echo e(__('Issue Date')); ?></th>
                                 <th> <?php echo e(__('Status')); ?></th>
                                 <?php if(Gate::check('edit proposal') || Gate::check('delete proposal') || Gate::check('show proposal')): ?>
@@ -112,7 +112,7 @@
                                     <?php if(!\Auth::guard('customer')->check()): ?>
                                         <td> <?php echo e(!empty($proposal->customer)? $proposal->customer->name:''); ?> </td>
                                     <?php endif; ?>
-                                    <td><?php echo e(!empty($proposal->category)?$proposal->category->name:''); ?></td>
+                                    
                                     <td><?php echo e(Auth::user()->dateFormat($proposal->issue_date)); ?></td>
                                     <td>
                                         <?php if($proposal->status == 0): ?>

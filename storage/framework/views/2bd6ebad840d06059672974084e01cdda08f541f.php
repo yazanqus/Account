@@ -1,4 +1,3 @@
-
 <?php
     $profile=asset(Storage::url('uploads/avatar/'));
 ?>
@@ -51,7 +50,7 @@
                         </div>
                     <?php endif; ?>
                     <div class="avatar-parent-child">
-                        <img src="<?php echo e((!empty($user->avatar))? asset(Storage::url("uploads/avatar/".$user->avatar)): asset(Storage::url("uploads/avatar/avatar.png"))); ?>" class="avatar rounded-circle avatar-xl">
+                        <img src="<?php echo e((!empty($user->avatar))? Storage::url("uploads/avatar/".$user->avatar): Storage::url("uploads/avatar/avatar.png")); ?>" class="avatar rounded-circle avatar-xl">
                     </div>
                     <h4 class="h4 mb-0 mt-2"><?php echo e($user->name); ?></h4>
                     <?php if($user->delete_status==0): ?>

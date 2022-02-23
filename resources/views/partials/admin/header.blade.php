@@ -95,9 +95,9 @@
                         aria-expanded="false"
                     >
                         <div class="media media-pill align-items-center">
-                      <span class="avatar rounded-circle">
+                      {{-- <span class="avatar rounded-circle">
                         <img src="{{(!empty($users->avatar)? $profile.'/'.$users->avatar : $profile.'/avatar.png')}}"/>
-                      </span>
+                      </span> --}}
                             <div class="ml-2 d-none d-lg-block">
                                 <span class="mb-0 text-sm font-weight-bold">{{\Auth::user()->name}}</span>
                             </div>

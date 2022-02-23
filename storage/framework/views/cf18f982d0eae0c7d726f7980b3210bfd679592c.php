@@ -97,9 +97,7 @@
                         aria-expanded="false"
                     >
                         <div class="media media-pill align-items-center">
-                      <span class="avatar rounded-circle">
-                        <img src="<?php echo e((!empty($users->avatar)? $profile.'/'.$users->avatar : $profile.'/avatar.png')); ?>"/>
-                      </span>
+                      
                             <div class="ml-2 d-none d-lg-block">
                                 <span class="mb-0 text-sm font-weight-bold"><?php echo e(\Auth::user()->name); ?></span>
                             </div>

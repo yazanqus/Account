@@ -37,7 +37,7 @@ unset($__errorArgs, $__bag); ?>
                         </thead>
                         <tbody>
                         <?php
-                            $modules=['dashboard','user','role','proposal','invoice','bill','revenue','payment','proposal product','invoice product','bill product','goal','credit note','debit note','bank account','transfer','transaction','product & service','customer','vender','plan','constant tax','constant category','constant unit','constant custom field','company settings','assets','chart of account','journal entry','report'];
+                            $modules=['dashboard','user','role','proposal','invoice','payment','proposal product','invoice product','product & service','customer','vender','constant tax','constant unit','constant custom field','company settings'];
                            if(\Auth::user()->type == 'super admin'){
                                $modules[] = 'language';
                                $modules[] = 'permission';

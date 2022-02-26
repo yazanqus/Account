@@ -65,11 +65,11 @@ body{margin:0;padding:0;width:100%;height:100%;}
 .features-part .features-card:nth-child(3) .inner-text:before{background-color:rgb(6, 23, 55);}
 .features-part .features-card:nth-child(4) .inner-text:before{background-color:rgb(255, 255, 255);}
 .features-part .features-card .inner-text{padding-top:30px;padding-right:40px;}
-.features-part .features-button a{font-size:14px;text-transform:uppercase;background-color:#fff;color:#0f5ef7;font-family:'Montserrat-Bold';padding:12px 70px;display:inline-block;text-decoration:none;}
+.features-part .features-button a{font-size:14px;text-transform:uppercase;background-color:#fff;color:#0e1b24;font-family:'Montserrat-Bold';padding:12px 70px;display:inline-block;text-decoration:none;}
 .features-part .features-button{text-align:center;}
-.nav.nav-tabs{border:1px solid #0f5ef7;border-radius:10px;width:fit-content;margin:0 auto 50px;}
-.nav.nav-tabs li a{color:#0f5ef7;text-decoration:none;padding:10px 15px;display:inline-block;border-radius:10px;font-size:12px;}
-.nav.nav-tabs li a.active{background:#0f5ef7;color:white;}
+.nav.nav-tabs{border:1px solid #0e1b24;border-radius:10px;width:fit-content;margin:0 auto 50px;}
+.nav.nav-tabs li a{color:#0e1b24;text-decoration:none;padding:10px 15px;display:inline-block;border-radius:10px;font-size:12px;}
+.nav.nav-tabs li a.active{background:#0e1b24;color:white;}
 .panal-1 img{width:100%;border-radius:20px;}
 .panal-1 figure figcaption{display:flex;justify-content:space-between;align-items:center;padding:15px 0px;}
 .contant-tab h5{margin-bottom:0;color:white;font-size:15px;}
@@ -92,17 +92,17 @@ body{margin:0;padding:0;width:100%;height:100%;}
 #customers-testimonials.owl-carousel .owl-dots{display:inline-block;width:100%;text-align:center;}
 #customers-testimonials.owl-carousel .owl-dots .owl-dot{display:inline-block;}
 #customers-testimonials.owl-carousel .owl-dots .owl-dot span{background:#3190E7;display:inline-block;height:20px;margin:0 2px 5px;transform:translate3d(0px, -50%, 0px) scale(0.3);transform-origin:50% 50% 0;transition:all 250ms ease-out 0s;width:20px;}
-.subscribe-part{padding:60px 0px;background:#0f5ef7;text-align:center;color:#fff;z-index:999;position:relative;box-shadow:0 0 87px rgba(15,96,246,.57);}
+.subscribe-part{padding:60px 0px;background:#0e1b24;text-align:center;color:#fff;z-index:999;position:relative;box-shadow:0 0 87px rgba(15,96,246,.57);}
 .subscribe-part form{width:40%;display:inline-block;margin-top:30px;}
 .subscribe-part form input{background-color:transparent;border-radius:8px;padding:1.375rem 2.75rem;color:#fff;}
-.subscribe-part form button{font-family:'Montserrat-SemiBold';border-radius:8px;display:inline-block;font-size:14px;color:#0f5ef7;background-color:#fff;padding:.375rem 2.05rem;border-top-left-radius:0;border-bottom-left-radius:0;}
+.subscribe-part form button{font-family:'Montserrat-SemiBold';border-radius:8px;display:inline-block;font-size:14px;color:#0e1b24;background-color:#fff;padding:.375rem 2.05rem;border-top-left-radius:0;border-bottom-left-radius:0;}
 .subscribe-part form input:focus{box-shadow:none;background-color:transparent;}
 .subscribe-part form input::placeholder{color:#fff;}
 .subscribe-part .top-heading{font-family:'Montserrat-SemiBold';font-size:14px;margin-bottom:30px;display:inline-block;}
 .subscribe-part h3{font-family:'Montserrat-SemiBold';font-size:40px;margin-bottom:0;}
 .subscribe-part .sub-heading{font-family:'Montserrat-Regular';font-size:40px;line-height:40px;margin-bottom:30px;display:inline-block;}
 .subscribe-part p{font-size:14px;font-family:'Poppins-Regular';}
-.subscribe-part form button:hover{color:#0f5ef7;}
+.subscribe-part form button:hover{color:#0e1b24;}
 .social-links .inner-text{padding:0;}
 .social-links .inner-text .links{text-align:center;}
 .social-links .inner-text .links a{display:block;color:#fff;font-size:14px;font-family:'Montserrat-SemiBold';text-decoration:none;padding:20px 0px;}
@@ -132,7 +132,7 @@ body{margin:0;padding:0;width:100%;height:100%;}
 .annual-billing span{background:white;color:#071f4e;border-radius:5px;padding:2px 15px;}
 .annual-billing .active span{background:#071f4e;color:white;}
 .plan-1{background-color:#a3afbb;padding:50px 20px;border-radius:20px;height:100%;}
-.plan-2{background-color:#0f5ef7;padding:50px 20px;border-radius:20px;height:100%;}
+.plan-2{background-color:#0e1b24;padding:50px 20px;border-radius:20px;height:100%;}
 .plan-3{background-color:#061737;padding:50px 20px;border-radius:20px;height:100%;}
 ul.plan-detail{list-style:none;padding-left:0px;}
 ul.plan-detail li{position:relative;padding-left:20px;font-size:14px;font-family:'Montserrat-SemiBold';padding-bottom:10px;}
@@ -151,9 +151,9 @@ p.price sub{left:-3px;font-size:13px;}
 .price-text{color:#071f4e;}
 .plan-2 .price-text{color:white;}
 .plan-3 .price-text{color:white;}
-.plan-2 a.button{background-color:white;border-color:white;color:#0f5ef7;}
-.server-plan{color:#637da9;background-color:#0f5ef74d;border-radius:6px;padding:10px 16px;}
-.server-plan a{color:#0f5ef7;}
+.plan-2 a.button{background-color:white;border-color:white;color:#0e1b24;}
+.server-plan{color:#637da9;background-color:#0e1b244d;border-radius:6px;padding:10px 16px;}
+.server-plan a{color:#0e1b24;}
 .img-testimonial{padding-top:30px;}
 .testimonials .owl-carousel .owl-nav.disabled{display:block;}
 .testimonials{padding:100px 0 0 0;}

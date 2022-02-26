@@ -147,7 +147,7 @@
                         </a>
                     </li>
                 @endif
-                @if( Gate::check('manage bank account') ||  Gate::check('manage transfer'))
+                {{-- @if( Gate::check('manage bank account') ||  Gate::check('manage transfer'))
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?' active':'collapsed'}}" href="#navbar-banking" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?'true':'false'}}" aria-controls="navbar-banking">
                             <i class="fas fa-university"></i>{{__('Banking')}}
@@ -168,9 +168,23 @@
                             </ul>
                         </div>
                     </li>
+                @endif --}}
+                @if(Gate::check('manage invoice'))
+                @can('manage invoice')
+                    <li class="nav-item {{ (Request::route()->getName() == 'invoice.index' || Request::route()->getName() == 'invoice.create' || Request::route()->getName() == 'invoice.edit' || Request::route()->getName() == 'invoice.show') ? ' active' : '' }}">
+                        <a href="{{ route('invoice.index') }}" class="nav-link">{{ __('Invoice') }}
+                            <i class="fas fa-money-bill-alt"></i>
+                        </a>
+                    </li>
+                @endcan
                 @endif
+                <li class="nav-item {{ (Request::route()->getName() == 'contract.index' || Request::route()->getName() == 'contract.create' || Request::route()->getName() == 'contract.edit' || Request::route()->getName() == 'contract.show') ? ' active' : '' }}">
+                    <a href="{{ route('contract.index') }}" class="nav-link">{{ __('Contract') }}
+                        <i class="fas fa-file-contract"></i>
+                    </a>
+                </li>
 
-                @if( Gate::check('manage invoice') ||  Gate::check('manage revenue') ||  Gate::check('manage credit note'))
+                {{-- @if( Gate::check('manage invoice') ||  Gate::check('manage revenue') ||  Gate::check('manage credit note'))
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?' active':'collapsed'}}" href="#navbar-income" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?'true':'false'}}" aria-controls="navbar-income">
                             <i class="fas fa-money-bill-alt"></i>{{__('Income')}}
@@ -199,9 +213,9 @@
                             </ul>
                         </div>
                     </li>
-                @endif
+                @endif --}}
 
-                @if( Gate::check('manage bill')  ||  Gate::check('manage payment') ||  Gate::check('manage debit note'))
+                {{-- @if( Gate::check('manage bill')  ||  Gate::check('manage payment') ||  Gate::check('manage debit note'))
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?' active':'collapsed'}}" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?'true':'false'}}" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i>{{__('Expense')}}
@@ -227,9 +241,9 @@
                             </ul>
                         </div>
                     </li>
-                @endif
+                @endif --}}
 
-                @if( Gate::check('manage chart of account') ||  Gate::check('manage journal entry') ||   Gate::check('balance sheet report') ||  Gate::check('ledger report') ||  Gate::check('trial balance report'))
+                {{-- @if( Gate::check('manage chart of account') ||  Gate::check('manage journal entry') ||   Gate::check('balance sheet report') ||  Gate::check('ledger report') ||  Gate::check('trial balance report'))
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'chart-of-account' || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?' active':'collapsed'}}" href="#navbar-double-entry" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' )?'true':'false'}}" aria-controls="navbar-double-entry">
                             <i class="fas fa-balance-scale"></i>{{__('Double Entry')}}
@@ -266,45 +280,45 @@
                             </ul>
                         </div>
                     </li>
-                @endif
+                @endif --}}
 
-                @if(Gate::check('manage goal'))
+                {{-- @if(Gate::check('manage goal'))
                     <li class="nav-item">
                         <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">
                             <i class="fas fa-bullseye"></i>{{__('Goal')}}
                         </a>
                     </li>
-                @endif --}}
-                @if(Gate::check('manage assets'))
+                @endif  --}}
+                {{-- @if(Gate::check('manage assets'))
                     <li class="nav-item">
                         <a href="{{ route('account-assets.index') }}" class="nav-link {{ (Request::segment(1) == 'account-assets')?'active':''}}">
                             <i class="fas fa-calculator"></i>{{__('Assets')}}
                         </a>
                     </li>
-                @endif
-                @if(Gate::check('manage plan'))
+                @endif --}}
+                {{-- @if(Gate::check('manage plan'))
                     <li class="nav-item">
                         <a href="{{ route('plans.index') }}" class="nav-link {{ (Request::segment(1) == 'plans')?'active':''}}">
                             <i class="fas fa-trophy"></i>{{__('Plan')}}
                         </a>
                     </li>
-                @endif
-                @if(Gate::check('manage coupon'))
+                @endif --}}
+                {{-- @if(Gate::check('manage coupon'))
                     <li class="nav-item">
                         <a href="{{ route('coupons.index') }}" class="nav-link {{ (Request::segment(1) == 'coupons')?'active':''}}">
                             <i class="fas fa-gift"></i>{{__('Coupon')}}
                         </a>
                     </li>
-                @endif
-                @if(Gate::check('manage order'))
+                @endif --}}
+                {{-- @if(Gate::check('manage order'))
                     <li class="nav-item">
                         <a href="{{ route('order.index') }}" class="nav-link {{ (Request::segment(1) == 'orders')?'active':''}}">
                             <i class="fas fa-cart-plus"></i>{{__('Order')}}
                         </a>
                     </li>
-                @endif
+                @endif --}}
 
-                 @if( Gate::check('income report') || Gate::check('expense report') || Gate::check('income vs expense report') || Gate::check('tax report')  || Gate::check('loss & profit report') || Gate::check('invoice report') || Gate::check('bill report') || Gate::check('invoice report') ||  Gate::check('manage transaction') ||  Gate::check('statement report') )
+                 {{-- @if( Gate::check('income report') || Gate::check('expense report') || Gate::check('income vs expense report') || Gate::check('tax report')  || Gate::check('loss & profit report') || Gate::check('invoice report') || Gate::check('bill report') || Gate::check('invoice report') ||  Gate::check('manage transaction') ||  Gate::check('statement report') )
                     <li class="nav-item">
                         <a class="nav-link {{ ((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?' active':'collapsed'}}" href="#navbar-reports" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'report' || Request::segment(1) == 'transaction')?'true':'false'}}" aria-controls="navbar-reports">
                             <i class="fas fa-chart-area"></i>{{__('Report')}}
@@ -361,7 +375,7 @@
                             </ul>
                         </div>
                     </li>
-                @endif
+                @endif --}}
 
                 @if(Gate::check('manage constant tax') || Gate::check('manage constant category') ||Gate::check('manage constant unit') ||Gate::check('manage constant payment method') ||Gate::check('manage constant custom field') || Gate::check('manage constant chart of account'))
                     <li class="nav-item">

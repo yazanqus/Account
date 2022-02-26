@@ -454,7 +454,7 @@ Route::group(
         ],
     ], function (){
 
-    Route::resource('bank-account', 'BankAccountController');
+    // Route::resource('bank-account', 'BankAccountController');
 
 }
 );
@@ -684,7 +684,7 @@ Route::group(
         ],
     ], function (){
 
-    Route::get('report/transaction', 'TransactionController@index')->name('transaction.index');
+    // Route::get('report/transaction', 'TransactionController@index')->name('transaction.index');
 
 
 }
@@ -698,21 +698,21 @@ Route::group(
         ],
     ], function (){
 
-    Route::get('report/income-summary', 'ReportController@incomeSummary')->name('report.income.summary');
-    Route::get('report/expense-summary', 'ReportController@expenseSummary')->name('report.expense.summary');
-    Route::get('report/income-vs-expense-summary', 'ReportController@incomeVsExpenseSummary')->name('report.income.vs.expense.summary');
-    Route::get('report/tax-summary', 'ReportController@taxSummary')->name('report.tax.summary');
-    Route::get('report/profit-loss-summary', 'ReportController@profitLossSummary')->name('report.profit.loss.summary');
+    // Route::get('report/income-summary', 'ReportController@incomeSummary')->name('report.income.summary');
+    // Route::get('report/expense-summary', 'ReportController@expenseSummary')->name('report.expense.summary');
+    // Route::get('report/income-vs-expense-summary', 'ReportController@incomeVsExpenseSummary')->name('report.income.vs.expense.summary');
+    // Route::get('report/tax-summary', 'ReportController@taxSummary')->name('report.tax.summary');
+    // Route::get('report/profit-loss-summary', 'ReportController@profitLossSummary')->name('report.profit.loss.summary');
 
-    Route::get('report/invoice-summary', 'ReportController@invoiceSummary')->name('report.invoice.summary');
-    Route::get('report/bill-summary', 'ReportController@billSummary')->name('report.bill.summary');
+    // Route::get('report/invoice-summary', 'ReportController@invoiceSummary')->name('report.invoice.summary');
+    // Route::get('report/bill-summary', 'ReportController@billSummary')->name('report.bill.summary');
 
-    Route::get('report/invoice-report', 'ReportController@invoiceReport')->name('report.invoice');
-    Route::get('report/account-statement-report', 'ReportController@accountStatement')->name('report.account.statement');
+    // Route::get('report/invoice-report', 'ReportController@invoiceReport')->name('report.invoice');
+    // Route::get('report/account-statement-report', 'ReportController@accountStatement')->name('report.account.statement');
 
-    Route::get('report/balance-sheet', 'ReportController@balanceSheet')->name('report.balance.sheet');
-    Route::get('report/ledger', 'ReportController@ledgerSummary')->name('report.ledger');
-    Route::get('report/trial-balance', 'ReportController@trialBalanceSummary')->name('trial.balance');
+    // Route::get('report/balance-sheet', 'ReportController@balanceSheet')->name('report.balance.sheet');
+    // Route::get('report/ledger', 'ReportController@ledgerSummary')->name('report.ledger');
+    // Route::get('report/trial-balance', 'ReportController@trialBalanceSummary')->name('trial.balance');
 }
 );
 

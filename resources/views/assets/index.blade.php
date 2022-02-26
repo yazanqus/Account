@@ -2,7 +2,7 @@
 @section('page-title')
     {{__('Assets')}}
 @endsection
-
+{{--
 @section('action-button')
     <div class="all-button-box row d-flex justify-content-end">
         @can('create assets')
@@ -14,8 +14,9 @@
         @endcan
     </div>
 @endsection
+--}}
 
-@section('content')
+{{-- @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -65,4 +66,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}

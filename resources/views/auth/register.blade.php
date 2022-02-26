@@ -65,7 +65,7 @@
                 </form>
             </div>
 
-            <h5 class="copyright-text">
+            {{-- <h5 class="copyright-text">
                 {{(Utility::getValByName('footer_text')) ? Utility::getValByName('footer_text') :  __('Copyright HRMGo') }} {{ date('Y') }}
             </h5>
             <div class="all-select">
@@ -77,7 +77,7 @@
                         @endforeach
                     </select>
                 </a>
-            </div>
+            </div>  --}}
         </div>
     </div>
 @endsection

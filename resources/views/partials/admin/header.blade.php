@@ -159,18 +159,18 @@
                                 @if(Gate::check('create bill'))
                                     <a class="dropdown-item" href="{{ route('bill.create',0) }}"><i class="fas fa-money-bill-wave-alt"></i>{{__('Create New Bill')}}</a>
                                 @endif
-                                @if(Gate::check('create bank account'))
+                                {{-- @if(Gate::check('create bank account'))
                                     <a class="dropdown-item" href="#" data-url="{{ route('bank-account.create') }}" data-ajax-popup="true" data-title="{{__('Create New Account')}}"><i class="fas fa-university"></i>{{__('Create New Account')}}</a>
-                                @endif
-                                @if(Gate::check('create goal'))
+                                @endif --}}
+                                {{-- @if(Gate::check('create goal'))
                                     <a class="dropdown-item" href="#" data-url="{{ route('goal.create') }}" data-ajax-popup="true" data-title="{{__('Create New Goal')}}"><i class="fas fa-bullseye"></i>{{__('Create New Goal')}}</a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </li>
                 @endif
             </ul>
-            <ul class="navbar-nav ml-lg-auto align-items-lg-center">
+            {{-- <ul class="navbar-nav ml-lg-auto align-items-lg-center">
                 <li class="nav-item">
                     <div class="dropdown global-icon" data-toggle="tooltip" data-original-titla="{{__('Choose Language')}}">
                         <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -186,7 +186,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> --}}
         </div>
     </div>
 </nav>

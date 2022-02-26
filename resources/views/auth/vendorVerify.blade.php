@@ -8,7 +8,7 @@
             font-size: 12px;
             color: #fff;
             font-family: 'Montserrat-SemiBold';
-            background: #0f5ef7;
+            background: #0e1b24;
             margin-top: 20px;
             padding: 10px 30px;
             width: 100%;

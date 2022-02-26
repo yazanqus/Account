@@ -222,13 +222,13 @@
                     </div>
                 @endif
 
-                @if($constant['bankAccount'] <= 0)
+                {{-- @if($constant['bankAccount'] <= 0)
                     <div class="col-3">
                         <div class="alert alert-danger text-xs">
                             {{__('Please create bank account. ')}}<a href="{{route('bank-account.index')}}"><b>{{__('click here')}}</b></a>
                         </div>
                     </div>
-                @endif
+                @endif --}}
             </div>
         @endif
         <div class="row">

@@ -130,7 +130,7 @@
                 <?php echo e(Form::label('billing_address',__('Address'),array('class'=>'form-control-label'))); ?>
 
                 <div class="input-group">
-                    <?php echo e(Form::textarea('billing_address',null,array('class'=>'form-control','rows'=>3))); ?>
+                    <?php echo e(Form::text('billing_address',null,array('class'=>'form-control'))); ?>
 
                 </div>
             </div>
@@ -216,7 +216,7 @@
 
                     <label class="form-control-label" for="example2cols1Input"></label>
                     <div class="input-group">
-                        <?php echo e(Form::textarea('shipping_address',null,array('class'=>'form-control','rows'=>3))); ?>
+                        <?php echo e(Form::text('shipping_address',null,array('class'=>'form-control'))); ?>
 
                     </div>
                 </div>

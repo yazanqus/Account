@@ -108,7 +108,7 @@
             <div class="form-group">
                 {{Form::label('billing_address',__('Address'),array('class'=>'form-control-label')) }}
                 <div class="input-group">
-                    {{Form::textarea('billing_address',null,array('class'=>'form-control','rows'=>3))}}
+                    {{Form::text('billing_address',null,array('class'=>'form-control'))}}
                 </div>
             </div>
         </div>
@@ -180,7 +180,7 @@
                     {{Form::label('shipping_address',__('Address'),array('class'=>'form-control-label')) }}
                     <label class="form-control-label" for="example2cols1Input"></label>
                     <div class="input-group">
-                        {{Form::textarea('shipping_address',null,array('class'=>'form-control','rows'=>3))}}
+                        {{Form::text('shipping_address',null,array('class'=>'form-control'))}}
                     </div>
                 </div>
             </div>

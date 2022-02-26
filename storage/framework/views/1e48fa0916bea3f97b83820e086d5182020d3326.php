@@ -27,9 +27,10 @@
         <div class="form-group col-md-12">
             <?php echo e(Form::label('description', __('Description'),['class'=>'form-control-label'])); ?>
 
-            <?php echo Form::textarea('description', null, ['class'=>'form-control','rows'=>'2']); ?>
+            <?php echo Form::text('description', null, ['id' => 'description','class'=>'form-control']); ?>
 
         </div>
+        
         <div class="col-md-6">
             <div class="form-group">
                 <?php echo e(Form::label('sale_price', __('Sale Price'),['class'=>'form-control-label'])); ?>

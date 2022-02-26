@@ -21,8 +21,11 @@
         </div>
         <div class="form-group col-md-12">
             {{ Form::label('description', __('Description'),['class'=>'form-control-label']) }}
-            {!! Form::textarea('description', null, ['class'=>'form-control','rows'=>'2']) !!}
+            {!! Form::text('description', null, ['id' => 'description','class'=>'form-control']) !!}
         </div>
+        {{-- <div class="form-group col-md-12">
+            {{ Form::textarea('description', null, ['class'=>'form-control','rows'=>'2','placeholder'=>__('Description')]) }}
+        </div> --}}
         <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('sale_price', __('Sale Price'),['class'=>'form-control-label']) }}
